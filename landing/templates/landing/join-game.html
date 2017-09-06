@@ -1,0 +1,28 @@
+{% extends "landing/base.html" %}
+
+{% block title %} Присоединиться к игре {% endblock %}
+
+
+{% block main-content %}
+
+    <div class="row justify-content-center bd-form">
+        <div class="col-6 text-center">
+            <h1>Принять участие в игре</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center p-3">
+    {% if None %}
+        <div class="list-group">
+            {% for name_game in request %}
+                <a href="" class="list-group-item list-group-item-action">{{ name_game }}</a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="text-center p-3">
+            <h2>Игр пока ещё нет :(</h2>
+        </div>
+    {% endif %}
+
+    </div>
+
+{% endblock %}

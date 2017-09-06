@@ -2,6 +2,7 @@ from django.db import models
 from datetime import *
 from django.contrib.auth.models import User
 
+'''
 class Account(models.Model):
     login = models.CharField(max_length=16, verbose_name='Логин')
     password = models.CharField(max_length=32, verbose_name='Пароль')
@@ -13,6 +14,7 @@ class Account(models.Model):
 
     def __str__(self):
         return self.login
+'''
 
 class City(models.Model):
     city = models.CharField(max_length=32, verbose_name='Город')
@@ -38,10 +40,13 @@ class Person(models.Model):
         verbose_name_plural = 'Персональные данные'
 
 class Game(models.Model):
-    key = models.IntegerField(unique='true', verbose_name='Ключ игры')
-    password = models.CharField(max_length=32, verbose_name='Пароль от игры')
 
-    account_id = models.ForeignKey(Account, verbose_name='Логин')
+    name = models.CharField(default='name', max_length=16, verbose_name='Название игры')
+    #key = models.IntegerField(unique='true', verbose_name='Ключ игры')
+    #password = models.CharField(max_length=32, verbose_name='Пароль от игры')
+
+    city = models.ForeignKey(City, verbose_name='Город', default=1)
+    account_id = models.ForeignKey(User, verbose_name='Логин')
 
     class Meta:
         verbose_name = 'Созданная игра'

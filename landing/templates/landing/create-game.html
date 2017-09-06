@@ -15,9 +15,11 @@
             {% csrf_token %}
                 <div class="form-group p-3">
                     <input type="text" name="name_game" class="form-control" id="InputNameGame" placeholder="Введите название игры">
-                    <select class="custom-select mt-2">
-                        <option selected>Выберите город</option>
-                        <option value="{{ city }}">{{ city }}</option>
+                    <select class="custom-select mt-2" name="city_choice">
+                        <option selected="selected" disabled>Выберите город</option>
+                        {% for city in cities %}
+                            <option value="{{ city.id }}">{{ city }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="text-center">

@@ -46,9 +46,6 @@ def login(request):
     else:
         return render_to_response('landing/login.html', args)
 
-    #args['username'] = auth.get_user(request).username
-
-
 def logout(request):
     auth.logout(request)
     return redirect("/")
@@ -67,7 +64,21 @@ def cabinet(request):
     return render(request, 'landing/cabinet.html', args)
 
 def create_game(request):
-    return render(request, 'landing/create-game.html', locals())
+    args = {}
+    args.update(csrf(request))
+    args['username'] = auth.get_user(request).username
+    args['cities'] = models.City.objects.all()
+    if request.POST:
+        game = models.Game(name=request.POST['name_game'],
+                           account_id=auth.get_user(request),
+                           city=args['cities'].get(id=request.POST['city_choice']))
+        game.save()
+        return redirect('/')
+    return render(request, 'landing/create-game.html', args)
 
 def join_game(request):
-    return render(request, 'landing/join-game.html', locals())
+    args = {}
+    args.update(csrf(request))
+    args['username'] = auth.get_user(request).username
+    args['games'] = models.Game.objects.all()
+    return render(request, 'landing/join-game.html', args)

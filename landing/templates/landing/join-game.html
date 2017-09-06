@@ -11,10 +11,10 @@
         </div>
     </div>
     <div class="row justify-content-center p-3">
-    {% if None %}
+    {% if games %}
         <div class="list-group">
-            {% for name_game in request %}
-                <a href="" class="list-group-item list-group-item-action">{{ name_game }}</a>
+            {% for game in games %}
+                <button title="" href="" class="list-group-item list-group-item-action">{{ game.name }}</button>
             {% endfor %}
         </div>
     {% else %}

@@ -2,10 +2,10 @@ from django.contrib import admin
 from . import models
 
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ('first_name','last_name','phone', 'sub_email', 'city', 'account_id')
+    list_display = ('user', 'first_name','last_name','phone', 'sub_email', 'city')
 
 class GameAdmin(admin.ModelAdmin):
-    list_display = ('name', 'city', 'account_id')
+    list_display = ('name', 'user_id')
 
 admin.site.register(models.Game, GameAdmin)
 

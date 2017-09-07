@@ -13,35 +13,39 @@ class City(models.Model):
         return self.city
 
 class Person(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=False, verbose_name='Логин')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, verbose_name='Логин', default=None)
     first_name = models.CharField(max_length=32, verbose_name='Имя') # ?
     last_name = models.CharField(max_length=32, verbose_name='Фамилия') # ?
     phone = models.IntegerField(verbose_name='Телефон')
     sub_email = models.EmailField(verbose_name='Доп. эл. почта')
 
     city = models.ForeignKey(City, verbose_name='Город')
+    #user_id = models.ForeignKey(User, default=1)
 
     class Meta:
         verbose_name = 'Персональные данные'
         verbose_name_plural = 'Персональные данные'
+
+    def __str__(self):
+        return 'Информация о пользователе %' %self.user
 
 class Game(models.Model):
     name = models.CharField(default='name', max_length=16, verbose_name='Название игры')
     #key = models.IntegerField(unique='true', verbose_name='Ключ игры')
     #password = models.CharField(max_length=32, verbose_name='Пароль от игры')
 
-    user_id = models.ForeignKey(User, verbose_name='Логин')
+    user_id = models.ForeignKey(Person, verbose_name='Логин', default=None)
 
     class Meta:
         verbose_name = 'Созданная игра'
         verbose_name_plural = 'Созданные игры'
 
     def __str__(self):
-        return self.name
+        return 'Игра пользователя %' % self.name
 
 
 class GameInfo(models.Model):
-    game = models.OneToOneField(Game, on_delete=models.CASCADE, primary_key=True, verbose_name='ID игры')
+    game = models.OneToOneField(Game, on_delete=models.CASCADE, primary_key=True, verbose_name='ID игры', default=None)
     info = models.TextField(verbose_name='Описание игры')
     image = models.ImageField(verbose_name='Картинка к игре')
 
@@ -50,6 +54,9 @@ class GameInfo(models.Model):
     class Meta:
         verbose_name = 'Информация об игре'
         verbose_name_plural = 'Информация об играх'
+
+    def __str__(self):
+        return 'Информация по игре %' % self.game
 
 
 class Session(models.Model):
@@ -61,6 +68,9 @@ class Session(models.Model):
         verbose_name = 'Игровая сессия'
         verbose_name_plural = 'Игровые сессии'
 
+    def __str__(self):
+        return self.name
+
 class Team(models.Model):
     name = models.CharField(max_length=32, verbose_name='Название команды')
     lead = models.ForeignKey(Person, verbose_name='Лидер')
@@ -68,6 +78,9 @@ class Team(models.Model):
     class Meta:
         verbose_name = 'Команда'
         verbose_name_plural = 'Команды'
+
+    def __str__(self):
+        return 'Команда: %' % self.name
 
 # 3 связующие БД, многие ко многим)
 class GameSession(models.Model):

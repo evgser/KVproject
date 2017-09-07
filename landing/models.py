@@ -13,7 +13,7 @@ class City(models.Model):
         return self.city
 
 class Person(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, verbose_name='Логин')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=False, verbose_name='Логин')
     first_name = models.CharField(max_length=32, verbose_name='Имя') # ?
     last_name = models.CharField(max_length=32, verbose_name='Фамилия') # ?
     phone = models.IntegerField(verbose_name='Телефон')

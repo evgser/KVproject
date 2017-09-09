@@ -18,32 +18,32 @@
         <div class="navbar-na-scroll">
             <ul class="navbar-nav mr-auto bd-navbar-nav flex-row">
                 <li class="nav-item">
-                    <a class="nav-link" href="/cabinet/">Личный кабинет</a>
+                    <a class="nav-link" href="/person/cabinet/">Личный кабинет</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/create-game/">Создать игру</a>
+                    <a class="nav-link" href="/game/create-game/">Создать игру</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/join-game/">Принять участие в игре</a>
+                    <a class="nav-link" href="/game/join-game/">Принять участие в игре</a>
                 </li>
             </ul>
         </div>
         <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
-            {% if username %}
+            {# if username #}
                 <li class="nav-item">
-                    <a class="nav-link p-2" href="/cabinet/">Пользователь: {{ username }}</a>
+                    <a class="nav-link p-2" href="/person/cabinet/">Пользователь: {{ username }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link p-2" href="/logout/">Выйти</a>
+                    <a class="nav-link p-2" href="/person/logout/">Выйти</a>
                 </li>
-            {% else %}
+            {# else #}
                 <li class="nav-item">
                     <a class="nav-link p-2" href="/registration/">Зарегистрироваться</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link p-2" href="/login/">Войти</a>
+                    <a class="nav-link p-2" href="/person/login/">Войти</a>
                 </li>
-            {% endif %}
+            {# endif #}
         </ul>
     </header>
 

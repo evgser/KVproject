@@ -19,9 +19,9 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('landing.urls')),
-    url(r'^', include('registration.urls')),
-    url(r'^', include('person.urls')),
-    url(r'^', include('game.urls')),
-    url(r'^', include('social.urls')),
-    url(r'^', include('session.urls'))
+    url(r'^registration/', include('registration.urls')),
+    url(r'^person/', include('person.urls')),
+    url(r'^game/', include('game.urls')),
+    url(r'^social/', include('social.urls')),
+    url(r'^session/', include('session.urls'))
 ]

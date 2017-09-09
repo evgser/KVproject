@@ -6,7 +6,7 @@
 
     <div class="row justify-content-center bd-form">
         <div class="col-3">
-            <form action="/login/" method="post">
+            <form action="/person/login/" method="post">
             {% csrf_token %}
                 <div class="form-group">
                     <label for="InputLogin">Логин:</label>
@@ -19,7 +19,10 @@
                         <label class="error">{{ login_error }}</label>
                     {% endif %}
                 </div>
-                <button type="submit" class="btn btn-success">Войти</button>
+                <div>
+                    <button type="submit" class="btn btn-success">Войти</button>
+                    <a class="btn btn-primary" href="/registration/" role="button">Зарегистрироваться</a>
+                </div>
             </form>
         </div>
     </div>

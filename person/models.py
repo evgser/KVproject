@@ -8,10 +8,10 @@ class Person(models.Model): # Добавить валидатор и прове�
     first_name = models.CharField(max_length=32, verbose_name='Имя') # ?
     last_name = models.CharField(max_length=32, verbose_name='Фамилия') # ?
     #photo = models.ImageField()
-    phone = models.IntegerField(verbose_name='Телефон')
+    phone = models.IntegerField(verbose_name='Телефон', null=True)
     sub_email = models.EmailField(verbose_name='Доп. эл. почта')
 
-    city = models.ForeignKey(City, verbose_name='Город')
+    city = models.ForeignKey(City, verbose_name='Город', null=True)
 
     class Meta:
         verbose_name = 'Персональные данные'

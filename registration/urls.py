@@ -3,5 +3,5 @@ from registration import views
 
 app_name = 'registration'
 urlpatterns = [
-    url(r'^registration/$', views.registration),
+    url(r'^$', views.registration),
 ]

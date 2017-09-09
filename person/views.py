@@ -2,37 +2,53 @@ from django.shortcuts import render, get_object_or_404, redirect, render_to_resp
 from django.http import Http404
 from django.contrib import auth
 from django.template.context_processors import csrf
+from django.contrib.auth.decorators import login_required
+from person.models import Person
+from landing.models import City
 
-
+@login_required(login_url='/person/login')
 def cabinet(request):
+    args = {}
+    args.update(csrf(request))
+    args['username'] = auth.get_user(request).username
+    args['id'] = auth.get_user(request)
 
-    try:
-        args = {}
-        args.update(csrf(request))
-        args['username'] = auth.get_user(request).username
-        args['text'] = 'Чё кого, сучааара'
-        #obj = get_object_or_404(models.Account, pk = login)
-        #return render(request, 'landing/cabinet.html', {'obj': obj})
-    except args.DoesNotExist:
-        raise Http404("Накосячил, мудила")
-    return render(request, 'landing/cabinet.html', args)
+    Person.objects.get_or_create(user=args['id'])
+    args['p'] = Person.objects.get(user=args['id'])
+    args['cities'] = City.objects.all()
+    if request.POST:
+
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        phone = request.POST['phone']
+        sub_email = request.POST['sub_email']
+        city_choice = request.POST['city_choice']
+        Person.objects.filter(user=args['id']).update(first_name=first_name, last_name=last_name,
+                                                      phone=phone, sub_email=sub_email,
+                                                      city=args['cities'].get(city=city_choice))
+        return redirect('/person/cabinet/')
+    else:
+        return render(request, 'landing/cabinet.html', args)
 
 # Функция для авторизации пользователя
 def login(request):
     args = {}
     args.update(csrf(request))
-    if request.POST:
-        username = request.POST['username']
-        password = request.POST['password']
-        user = auth.authenticate(username=username, password=password)
-        if user is not None:
-            auth.login(request, user)
-            return redirect('/')
+    if not request.user.is_authenticated:
+        if request.POST:
+            args['username'] = request.POST['username']
+            password = request.POST['password']
+            user = auth.authenticate(username=args['username'], password=password)
+            if user is not None:
+                auth.login(request, user)
+                return redirect('/')
+            else:
+                args['login_error'] = 'Пользователь не найден'
+                return render_to_response('landing/login.html', args)
         else:
-            args['login_error'] = 'Пользователь не найден'
             return render_to_response('landing/login.html', args)
     else:
-        return render_to_response('landing/login.html', args)
+        return redirect('/person/cabinet/')
 
 
 def logout(request):

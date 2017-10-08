@@ -48,13 +48,48 @@
     </header>
 
     <div class="container-fluid bd-main-content">
-        {% block main-content %}
-        <div class="row justify-content-center">
-            <main class="col-4" role="main">
-                {% block content %}{% endblock %}
-            </main>
+        <div class="row flex-xl-nowrap">
+            <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+                <nav class="bd-links" id="bd-docs-nav">
+                    <div class="bd-toc-item active">
+                        <ul class="nav bd-sidenav">
+                            <li class="bd-sidenav-li">
+                                <a class="bd-toc-link" href="/person">Персональные данные</a>
+                            </li>
+                            <li class="bd-sidenav-li">
+                                <a class="bd-toc-link" href="/social/team/">Комнады</a>
+                            </li>
+                            <li class="bd-sidenav-li">
+                                <a class="bd-toc-link" href="/game">Игры</a>
+                            </li>
+                            <li class="bd-sidenav-li">
+                                <a class="bd-toc-link" href="/session">Игровые сессии</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+                {% block main-content %}
+                {% endblock %}
+            </div>
+            <div class="d-none d-xl-block col-xl-2 bd-toc pt-4">
+                <div class="row">
+                    <h3>Уведомления</h3>
+                </div>
+                <div class="row pt-2">
+                    {% if notice %}
+                        <ul class="section-nav">
+                            {% for notice in notices %}
+                                <li>{{ notice }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>У вас нет уведомлений</p>
+                    {% endif %}
+                </div>
+            </div>
         </div>
-        {% endblock %}
     </div>
 
 </body>

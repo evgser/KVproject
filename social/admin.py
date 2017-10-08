@@ -1,10 +1,15 @@
 from django.contrib import admin
-from .models import Team, Role
+from social.models import Team, MemberTeam
+from person.models import Person
 
 # Админка для команд
+class MemberTeamInline(admin.TabularInline):
+    model = MemberTeam
+    extra = 1
+
 class TeamAdmin(admin.ModelAdmin):
-    list_display = ('name', 'lead')
+    #list_display = ('name', 'members')
+    inlines = (MemberTeamInline,)
 
-admin.site.register(Team)
+admin.site.register(Team, TeamAdmin)
 
-admin.site.register(Role)

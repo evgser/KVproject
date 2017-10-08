@@ -11,22 +11,29 @@ def cabinet(request):
     args = {}
     args.update(csrf(request))
     args['username'] = auth.get_user(request).username
-    args['id'] = auth.get_user(request)
+    args['user'] = auth.get_user(request)
 
-    Person.objects.get_or_create(user=args['id'])
-    args['p'] = Person.objects.get(user=args['id'])
+    Person.objects.get_or_create(user=args['user'])
+
+    args['p'] = Person.objects.get(user=args['user'])
+
     args['cities'] = City.objects.all()
+
     if request.POST:
 
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         phone = request.POST['phone']
+        if phone == '':
+            phone = None
         sub_email = request.POST['sub_email']
-        city_choice = request.POST['city_choice']
-        Person.objects.filter(user=args['id']).update(first_name=first_name, last_name=last_name,
-                                                      phone=phone, sub_email=sub_email,
-                                                      city=args['cities'].get(city=city_choice))
-        return redirect('/person/cabinet/')
+        city_choice = request.POST.get('city_choice', None)
+        Person.objects.filter(user=args['user']).update(first_name=first_name, last_name=last_name,
+                                                      phone=phone, sub_email=sub_email)
+        if city_choice:
+            Person.objects.filter(user=args['user']).update(city=City.objects.get(city=city_choice))
+
+        return redirect('/person/')
     else:
         return render(request, 'landing/cabinet.html', args)
 
@@ -48,7 +55,7 @@ def login(request):
         else:
             return render_to_response('landing/login.html', args)
     else:
-        return redirect('/person/cabinet/')
+        return redirect('/person/')
 
 
 def logout(request):

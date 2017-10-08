@@ -1,0 +1,44 @@
+{% extends "social/base.html" %}
+
+{% block title %} Команда {% endblock %}
+
+{% block main-content %}
+
+    <div class="row">
+    {{ list }}
+        {% if teams %}
+        <h2>Список ваших команд:</h2>
+        {% else %}
+        <h2>У вас пока нет команд</h2>
+        {% endif %}
+    </div>
+    <div class="row p-2">
+        <div class="col-3">
+            <p>Название команды</p>
+        </div>
+        <div class="col-2 text-center">
+            <p>Количество учатников</p>
+        </div>
+        <div class="col-2">
+
+        </div>
+    </div>
+    {% for team in teams %}
+    <div class="row p-1 pl-2">
+
+            <div class="col-3">
+                <a href="/social/team/{{ team.id }}">{{ team }}</a>
+            </div>
+            <div class="col-2 text-center">
+                <p>{{ team.count_person }}</p>
+            </div>
+            <div class="col-3 text-center">
+                <a class="btn btn-danger btn-sm" href="/social/leave-team/{{ team.id }}/{{ request.user.id }}" role="button">Покинуть команду</a>
+            </div>
+    </div>
+    {% endfor %}
+    <div class="row p-3">
+        <a class="btn btn-warning" href="/social/create-team/" role="button">Создать команду</a>
+    </div>
+
+{% endblock %}

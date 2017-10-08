@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, render_to_resp
 from django.contrib import auth
 from django.template.context_processors import csrf
 from django.contrib.auth.models import User
+from person.models import Person
 
 def registration(request): # Добавить валидатор на проверку формы
     """Регистрация новых пользователей"""
@@ -18,10 +19,10 @@ def registration(request): # Добавить валидатор на прове
                 user.save()
                 if user is not None:
                     auth.login(request, user)
-                    return redirect('/person/cabinet/')
+                    return redirect('/person/')
             else:
                 args['password_error'] = 'Пароли не совпадают'
         else:
             return render(request, 'landing/registration.html', args)
     else:
-        return redirect('/person/cabinet/')
+        return redirect('/person/')

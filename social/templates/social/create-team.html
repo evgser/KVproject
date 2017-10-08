@@ -1,0 +1,23 @@
+{% extends "social/base.html" %}
+
+{% block title %} Создание команды {% endblock %}
+
+{% block main-content %}
+
+    <div class="row">
+        <form action="/social/create-team/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="InputTeamName">Название команды:</label>
+                <input name="team_name" class="form-control" id="InputTeamName" placeholder="Введите название команды">
+                {% if team_error %}
+                <label class="error">{{ team_error }}</label>
+                {% endif %}
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success mt-2">Подтвердить создание команды</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

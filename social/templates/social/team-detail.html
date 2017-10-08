@@ -1,0 +1,61 @@
+{% extends "social/base.html" %}
+
+{% block title %} Информация о команде {% endblock %}
+
+{% block main-content %}
+
+    <div class="row">
+        <h2>{{ team }}</h2>
+    </div>
+
+    {% if lead_error %}
+        <p>{{ lead_error }}</p>
+    {% endif %}
+
+    <div class="row p-2">
+        <div class="col-2">Участник</div>
+        <div class="col-2 text-center">Роль</div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+    </div>
+
+    {% for member in members %}
+    <div class="row p-2">
+
+        <div class="col-2">
+            <p>{{member.person.first_name}} {{ member.person.last_name }}</p>
+        </div>
+
+        <div class="col-2 text-center">
+            <p>{{ member.role }}</p>
+        </div>
+
+        <div class="col-2"></div>
+
+        <div class="col-2 text-center">
+            {% if member.person.user == username %}
+                <a class="btn btn-danger btn-sm" href="/social/leave-team/team={{ team.id }}&user={{ member.person.user_id }}" role="button">Покинуть команду</a>
+            {% else %}
+                <a class="btn btn-danger btn-sm" href="/social/leave-team/team={{ team.id }}&user={{ member.person.user_id }}" role="button">Исключить из команды</a>
+            {% endif %}
+        </div>
+
+        <div class="col-2 text-center">
+            {% if True %}
+                <a class="btn btn-warning btn-sm" href="/social/change-lead/team={{ team.id }}&user={{ member.person.user_id }}" role="button">Назначить лидером</a>
+            {% endif %}
+        </div>
+
+    </div>
+    {% endfor %}
+
+    <div class="row p-2 mt-2">
+        <div class="col-2">
+            <input>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-primary btn-sm" href="" role="button">Пригласить в команду</a>
+        </div>
+    </div>
+
+{% endblock %}

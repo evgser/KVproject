@@ -6,14 +6,14 @@ class Game(models.Model):
     """Модель для создания игры"""
     password = models.CharField(max_length=32, verbose_name='Пароль от игры')
 
-    user_id = models.ForeignKey(Person, verbose_name='Логин', default=None)
+    user_id = models.ForeignKey(Person, verbose_name='Создатель', default=None)
 
     class Meta:
         verbose_name = 'Созданная игра'
         verbose_name_plural = 'Созданные игры'
 
     def __str__(self):
-        return 'Игра пользователя %s' % self.user_id
+        return 'ID игры: %s' % self.id
 
 class GameInfo(models.Model):
     """Модель для хранения основной информации об игре"""

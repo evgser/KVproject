@@ -1,8 +1,8 @@
-{% extends "landing/base.html" %}
+{% extends "person/base-person.html" %}
 
 {% block title %} Создать игру {% endblock %}
 
-{% block main-content %}
+{% block content %}
 
     <div class="row justify-content-center bd-form">
         <div class="col-4 text-center">
@@ -10,8 +10,8 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-3">
-            <form action="game/create-game/" method="post">
+        <div class="col-3 text-center">
+            <form action="/game/create-game/" method="post">
             {% csrf_token %}
                 <div class="form-group p-3">
                     <input type="text" name="name_game" class="form-control" id="InputNameGame" placeholder="Введите название игры">

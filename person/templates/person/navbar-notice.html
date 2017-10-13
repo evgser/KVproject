@@ -1,0 +1,17 @@
+<!-- Navbar notice -->
+<div class="d-none d-xl-block col-xl-2 bd-toc pt-4">
+    <div class="row">
+        <h3>Уведомления</h3>
+    </div>
+    <div class="row pt-2">
+        {% if notice %}
+            <ul class="section-nav">
+                {% for notice in notices %}
+                    <li>{{ notice }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>У вас нет уведомлений</p>
+        {% endif %}
+    </div>
+</div>

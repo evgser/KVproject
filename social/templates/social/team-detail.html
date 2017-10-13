@@ -1,8 +1,8 @@
-{% extends "social/base.html" %}
+{% extends "person/base-person.html" %}
 
 {% block title %} Информация о команде {% endblock %}
 
-{% block main-content %}
+{% block content %}
 
     <div class="row">
         <h2>{{ team }}</h2>
@@ -50,12 +50,15 @@
     {% endfor %}
 
     <div class="row p-2 mt-2">
-        <div class="col-2">
-            <input>
-        </div>
-        <div class="col-2">
-            <a class="btn btn-primary btn-sm" href="" role="button">Пригласить в команду</a>
-        </div>
+        <form class="form-inline" id="invite_in_team">
+            {% csrf_token %}
+                <div class="col-5 form-group">
+                    <input name="invite_member" class="form-control" id="invite_member">
+                </div>
+                <div class="col-2">
+                    <button id="submit_btn" type="submit" class="btn btn-primary" data-team_id = "{{ team.id }}">Пригласить в команду</button>
+                </div>
+        </form>
     </div>
 
 {% endblock %}

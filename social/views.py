@@ -22,9 +22,9 @@ def team(request):
     args['teams'] = person.team_set.all().annotate(count_person=Count('members'))
     #args['count_members'] =
     args['teams2'] = Team.objects.filter(members=person).annotate(count_person=Count('members'))
-    print(args['teams2'][0].count_person)
-    print(type(args['teams']))
-    print(args['teams'][0].count_person)
+    #print(args['teams2'][0].count_person)
+    #print(type(args['teams']))
+    #print(args['teams'][0].count_person)
     #print(args['teams'][0].members.all().count())
 
     return render(request, 'social/team.html', args)

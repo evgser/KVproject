@@ -35,7 +35,7 @@ def cabinet(request):
 
         return redirect('/person/')
     else:
-        return render(request, 'landing/cabinet.html', args)
+        return render(request, 'person/cabinet.html', args)
 
 # Функция для авторизации пользователя
 def login(request):
@@ -51,9 +51,9 @@ def login(request):
                 return redirect('/')
             else:
                 args['login_error'] = 'Пользователь не найден'
-                return render_to_response('landing/login.html', args)
+                return render_to_response('person/login.html', args)
         else:
-            return render_to_response('landing/login.html', args)
+            return render_to_response('person/login.html', args)
     else:
         return redirect('/person/')
 

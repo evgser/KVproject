@@ -3,7 +3,7 @@ h1 {
 }
 
 .bd-navbar{
-    background-color: cadetblue;
+    background-color: #2d6994;
     box-shadow:
             0 0.5rem 1rem rgba(0,0,0,.05),
             inset 0 -1px 0 rgba(0,0,0,.1);
@@ -33,4 +33,23 @@ h1 {
 
 .bd-sidenav-li{
     box-sizing: inherit;
+}
+
+.user-container{
+    position: relative;
+}
+
+.user-menu{
+    position: absolute;
+    padding: .5rem 0;
+    margin: .46rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: rgba(45, 105, 148, 0.75);
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    z-index: 10;
 }

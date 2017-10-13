@@ -23,6 +23,6 @@ def registration(request): # Добавить валидатор на прове
             else:
                 args['password_error'] = 'Пароли не совпадают'
         else:
-            return render(request, 'landing/registration.html', args)
+            return render(request, 'registration/registration.html', args)
     else:
         return redirect('/person/')

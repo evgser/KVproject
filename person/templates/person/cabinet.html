@@ -1,0 +1,43 @@
+{% extends "person/base-person.html" %}
+
+{% block title %} Кабинет {% endblock %}
+
+{% block content %}
+
+    <form action="/person" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="InputFirstName">Имя:</label>
+            <input name="first_name" class="form-control" id="InputFirstName" value="{% if p.first_name %}{{ p.first_name }}{% endif %}">
+        </div>
+        <div class="form-group">
+            <label for="InputLastName">Фамилия:</label>
+            <input name="last_name" class="form-control" id="InputLastName" value="{% if p.last_name %}{{ p.last_name }}{% endif %}">
+        </div>
+        <div class="form-group">
+            <label for="InputPhone">Номер телефона:</label>
+            <input name="phone" class="form-control" id="InputPhone" value="{% if p.phone %}{{ p.phone }}{% endif %}">
+        </div>
+        <div class="form-group">
+            <label for="InputSubEmail">Доп. почта:</label>
+            <input name="sub_email" class="form-control" id="InputSubEmail" value="{% if p.sub_email %}{{ p.sub_email }}{% endif %}">
+        </div>
+        <label for="InputCity">Город:</label>
+        <select class="custom-select m-2" name="city_choice">
+            {% if p.city is None %}
+                <option selected="selected" disabled>Выберите город</option>
+            {% else %}
+                <option value="{{ p.city }}" selected="selected">{{ p.city }}</option>
+            {% endif %}
+            {% for city in cities %}
+                {% if city != p.city %}
+                <option value="{{ city }}">{{ city }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <div>
+            <button type="submit" class="btn btn-success mt-2">Сохранить измения</button>
+        </div>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "landing/base.html" %}
+
+{% block title %} Список игр {% endblock %}
+
+{% block main-content %}
+
+    {% for game in all_games %}
+        <div>
+            <a href="/game/{{ game.game_id }}">{{game.name}}</a>
+        </div>
+    {% endfor %}
+
+{% endblock %}

@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fcdae2f-4fe4-47f4-b80f-3ad95805d7e0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/game/templates/game/game.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/game/templates/game/my-game.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/landing/static/js/scripts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/landing/templates/landing/navbar-top.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/person/templates/person/base-person.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/person/templates/person/navbar-notice.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/person/templates/person/navbar-side.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/game/templates/game/base.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/social/templates/social/base.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/models.py" afterPath="$PROJECT_DIR$/game/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/urls.py" afterPath="$PROJECT_DIR$/game/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/views.py" afterPath="$PROJECT_DIR$/game/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/landing/static/style.css" afterPath="$PROJECT_DIR$/landing/static/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/landing/templates/landing/base.html" afterPath="$PROJECT_DIR$/landing/templates/landing/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/person/views.py" afterPath="$PROJECT_DIR$/person/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/registration/views.py" afterPath="$PROJECT_DIR$/registration/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/social/templates/social/create-team.html" afterPath="$PROJECT_DIR$/social/templates/social/create-team.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/social/templates/social/team-detail.html" afterPath="$PROJECT_DIR$/social/templates/social/team-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/social/templates/social/team.html" afterPath="$PROJECT_DIR$/social/templates/social/team.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/social/views.py" afterPath="$PROJECT_DIR$/social/views.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/landing/templates/landing/cabinet.html" afterPath="$PROJECT_DIR$/person/templates/person/cabinet.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/landing/templates/landing/create-game.html" afterPath="$PROJECT_DIR$/game/templates/game/create-game.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/landing/templates/landing/login.html" afterPath="$PROJECT_DIR$/person/templates/person/login.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/landing/templates/landing/registration.html" afterPath="$PROJECT_DIR$/registration/templates/registration/registration.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -506,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507430343356</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="restructuring templates">
+      <created>1507919220889</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1507919220889</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -594,7 +576,8 @@
     <MESSAGE value="partition app" />
     <MESSAGE value="update person" />
     <MESSAGE value="add in social: change_lead, leave_team" />
-    <option name="LAST_COMMIT_MESSAGE" value="add in social: change_lead, leave_team" />
+    <MESSAGE value="restructuring templates" />
+    <option name="LAST_COMMIT_MESSAGE" value="restructuring templates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

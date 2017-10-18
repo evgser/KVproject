@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fcdae2f-4fe4-47f4-b80f-3ad95805d7e0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/KVproject/celery.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/KVproject/tasks.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/landing/tasks.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KVproject/__init__.py" afterPath="$PROJECT_DIR$/KVproject/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KVproject/settings.py" afterPath="$PROJECT_DIR$/KVproject/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/landing/static/js/scripts.js" afterPath="$PROJECT_DIR$/landing/static/js/scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/landing/static/style.css" afterPath="$PROJECT_DIR$/landing/static/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/landing/templates/landing/base.html" afterPath="$PROJECT_DIR$/landing/templates/landing/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/landing/templates/landing/main.html" afterPath="$PROJECT_DIR$/landing/templates/landing/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/landing/templates/landing/navbar-top.html" afterPath="$PROJECT_DIR$/landing/templates/landing/navbar-top.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/person/templates/person/base-person.html" afterPath="$PROJECT_DIR$/person/templates/person/base-person.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/person/templates/person/navbar-notice.html" afterPath="$PROJECT_DIR$/person/templates/person/navbar-notice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/person/templates/person/navbar-side.html" afterPath="$PROJECT_DIR$/person/templates/person/navbar-side.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/session/models.py" afterPath="$PROJECT_DIR$/session/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/social/templates/social/team-detail.html" afterPath="$PROJECT_DIR$/social/templates/social/team-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/social/views.py" afterPath="$PROJECT_DIR$/social/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -519,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507919232801</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add celery">
+      <created>1508346660666</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1508346660666</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -608,7 +597,8 @@
     <MESSAGE value="update person" />
     <MESSAGE value="add in social: change_lead, leave_team" />
     <MESSAGE value="restructuring templates" />
-    <option name="LAST_COMMIT_MESSAGE" value="restructuring templates" />
+    <MESSAGE value="Add celery" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add celery" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

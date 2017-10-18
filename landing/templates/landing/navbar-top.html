@@ -24,23 +24,15 @@
     <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
         {% if username %}
             <li class="nav-item user-container dropdown">
-                <a class="nav-link p-2 dropdown-toggle" href="#" data-toggle="dropdown" id="menu1">
-                    <span class="caret"></span>Пользователь: {{ username }}
+                <a class="nav-link dropdown-toggle p-2" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Пользователь: {{ username }} <span class="badge badge-danger">2</span>
                 </a>
-                <ul class="nav bd-sidenav user-menu dropdown-menu" role="menu" aria-labelledby="menu1">
-                    <li class="bd-sidenav-li" role="presentation">
-                        <a class="dropdown-item" role="menuitem" tabindex="-1" href="/person/">Персональные данные</a>
-                    </li>
-                    <li class="bd-sidenav-li" role="presentation">
-                        <a class="dropdown-item" role="menuitem" tabindex="-1" href="/social/team/">Команды</a>
-                    </li>
-                    <li class="bd-sidenav-li" role="presentation">
-                        <a class="dropdown-item" role="menuitem" tabindex="-1" href="/game/my-game/">Мои игры</a>
-                    </li>
-                    <li class="bd-sidenav-li" role="presentation">
-                        <a class="dropdown-item" role="menuitem" tabindex="-1" href="/">Мои сессии</a>
-                    </li>
-                </ul>
+                <div class="user-menu dropdown-menu">
+                    <a class="dropdown-item" href="/person/">Персональные данные</a>
+                    <a class="dropdown-item" href="/social/team/">Команды <span class="badge badge-danger">2</span></a>
+                    <a class="dropdown-item" href="/game/my-game/">Мои игры</a>
+                    <a class="dropdown-item" href="/">Мои сессии</a>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link p-2" href="/person/logout/">Выйти</a>

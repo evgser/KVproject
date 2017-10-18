@@ -1,17 +1,24 @@
 <!-- Navbar notice -->
 <div class="d-none d-xl-block col-xl-2 bd-toc pt-4">
-    <div class="row">
-        <h3>Уведомления</h3>
-    </div>
-    <div class="row pt-2">
-        {% if notice %}
-            <ul class="section-nav">
-                {% for notice in notices %}
-                    <li>{{ notice }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>У вас нет уведомлений</p>
-        {% endif %}
-    </div>
+    {% if notice %}
+        {% for notice in notices %}
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="text-white bg-info" style="max-width: 15rem;">
+            <div class="card-header">Вас пригласили в команду</div>
+            <div class="card-body">
+                <p class="card-text">Для того, чтобы вступить в команду, нажмите на зелёную кнопку</p>
+            </div>
+            <div class="btn-group-sm text-center pb-2" role="group">
+                <button type="button" class="btn btn-success">Встпупить</button>
+                <button type="button" class="btn btn-danger">Отклонить</button>
+            </div>
+        </div>
+    {% endif %}
 </div>

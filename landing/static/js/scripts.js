@@ -9,7 +9,7 @@ $(document).ready(function () {
         console.log(team);
     });
 
-    $(".dropdown-toggle").dropdown("toggle");
+
 
     /*function showingUserInfo() {
         $('.user-menu').toggleClass('show');

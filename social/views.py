@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from person.models import Person
 from social.models import Team, MemberTeam
 from django.db.models import Count
+from KVproject.tasks import add
 
 @login_required(login_url='/person/login')
 def team(request):
@@ -14,7 +15,7 @@ def team(request):
     args.update(csrf(request))
     # Получение текущего пользователя из User
     args['username'] = request.user
-
+    print(add(4,4))
     # Получаем команды пользователя и количество участников в каждой команде
     # Получаем пользователя
     person = Person.objects.get(user=args['username'])
@@ -35,11 +36,12 @@ def team_details(request, team):
     args.update(csrf(request))
     # Получение текущего пользователя из User
     args['username'] = request.user
-
+    print(request.session.session_key)
     # Получаем команду пользователя
     args['team'] = Team.objects.get(id=team)
     # Получаем всех пользователей команды
     args['members'] = MemberTeam.objects.filter(team_id=args['team'])
+
 
     #args['members'] = args['team'].members.all()
     #print(args['team'].members.all().count())

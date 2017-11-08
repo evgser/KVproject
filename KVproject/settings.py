@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'game',
     'social',
     'session',
-    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -138,6 +137,6 @@ STATIC_URL = '/static/'
 #        "KEY_PREFIX": "example"
 #    }
 #}
-CELERY_RESULT_BACKEND = 'django-cache'
+#CELERY_RESULT_BACKEND = 'django-cache'
 #SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 #SESSION_CACHE_ALIAS = "default"

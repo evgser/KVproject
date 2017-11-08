@@ -33,7 +33,7 @@ def cabinet(request):
         if city_choice:
             Person.objects.filter(user=args['user']).update(city=City.objects.get(city=city_choice))
 
-        return redirect('/person/')
+        return redirect('/person') # Глянуть что за хуйня
     else:
         return render(request, 'person/cabinet.html', args)
 

@@ -7,7 +7,28 @@ from django.contrib.auth.models import User
 from person.models import Person
 from social.models import Team, MemberTeam
 from django.db.models import Count
-from KVproject.tasks import add
+
+#----------------------
+# Elasticsearch
+from elasticsearch import Elasticsearch, RequestsHttpConnection
+from rest_framework_elasticsearch import es_views, es_filters
+from person.models import PersonIndex
+
+class PersonView(es_views.ListElasticAPIView):
+    es_client = Elasticsearch(hosts=['elasticsearch:9200/'],
+                              connection_class=RequestsHttpConnection)
+    es_model = PersonIndex
+
+    es_filter_backends = (
+        es_filters.ElasticFieldsFilter,
+        es_filters.ElasticSearchFilter
+    )
+
+    es_filter_fields = (
+        es_filters.ESFieldFilter('')
+    )
+
+#----------------------
 
 @login_required(login_url='/person/login')
 def team(request):
@@ -15,7 +36,7 @@ def team(request):
     args.update(csrf(request))
     # Получение текущего пользователя из User
     args['username'] = request.user
-    print(add(4,4))
+
     # Получаем команды пользователя и количество участников в каждой команде
     # Получаем пользователя
     person = Person.objects.get(user=args['username'])
@@ -36,9 +57,11 @@ def team_details(request, team):
     args.update(csrf(request))
     # Получение текущего пользователя из User
     args['username'] = request.user
-    print(request.session.session_key)
+    #print(request.session.session_key)
     # Получаем команду пользователя
     args['team'] = Team.objects.get(id=team)
+    args['lead'] = args['team'].lead
+
     # Получаем всех пользователей команды
     args['members'] = MemberTeam.objects.filter(team_id=args['team'])
 

@@ -5,6 +5,8 @@ from django.template.context_processors import csrf
 from .models import Game, GameInfo, City, Person
 from django.contrib.auth.decorators import login_required
 
+
+
 @login_required(login_url='/person/login')
 def my_game(request):
     args = {}
